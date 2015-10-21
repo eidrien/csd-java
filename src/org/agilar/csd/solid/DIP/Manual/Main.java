@@ -17,7 +17,10 @@ public class Main {
 		// String sourceFileName = "http://chris.59north.com/Document1.xml";
 		String targetFileName = "https://agilarcsd.blob.core.windows.net/agilarcsdcontainer/Document1.json";
 
-		FormatConverter formatConverter = new FormatConverter();
+		InputParser jsonInputParser = new JsonInputParser();
+		DocumentSerializer documentSerializer = new CamelCaseJsonSerializer();
+		
+		FormatConverter formatConverter = new FormatConverter(jsonInputParser,documentSerializer);
 		DocumentStorageFactory documentStorageFactory = new DocumentStorageFactory();
 		
 		if (!formatConverter.ConvertFormat(documentStorageFactory,sourceFileName,targetFileName)) {

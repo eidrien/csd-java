@@ -15,10 +15,10 @@ public class FormatConverter {
     private final InputParser inputParser;
     private final DocumentSerializer documentSerializer;
 
-    public FormatConverter()
+    public FormatConverter(InputParser inputParser, DocumentSerializer documentSerializer)
     {
-        inputParser = new JsonInputParser();
-        documentSerializer = new CamelCaseJsonSerializer();
+        this.inputParser =inputParser;
+        this.documentSerializer = documentSerializer;
     }
 
     public boolean ConvertFormat(DocumentStorageFactory documentStorageFactory, String sourceFileName, String targetFileName) throws IOException, SAXException, ParserConfigurationException {
