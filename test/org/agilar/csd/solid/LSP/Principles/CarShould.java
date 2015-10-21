@@ -8,7 +8,7 @@ import java.awt.Color;
 
 import org.junit.Test;
 
-public class CarTest {
+public class CarShould {
 
 	@Test
 	public void makeSureCarCanStart() {

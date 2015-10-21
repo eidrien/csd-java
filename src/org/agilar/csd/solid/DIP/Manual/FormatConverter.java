@@ -3,8 +3,6 @@ package org.agilar.csd.solid.DIP.Manual;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.security.InvalidKeyException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -23,11 +21,11 @@ public class FormatConverter {
         documentSerializer = new CamelCaseJsonSerializer();
     }
 
-    public boolean ConvertFormat(String sourceFileName, String targetFileName) throws IOException, SAXException, ParserConfigurationException {
+    public boolean ConvertFormat(DocumentStorageFactory documentStorageFactory, String sourceFileName, String targetFileName) throws IOException, SAXException, ParserConfigurationException {
     	File input = null;
     	try
     	{
-    		InputRetriever sourceDocumentStorage = GetDocumentStorageForFileName(sourceFileName);
+    		InputRetriever sourceDocumentStorage = documentStorageFactory.GetInputRetrieverForFileName(sourceFileName);
     		input = sourceDocumentStorage.GetData(sourceFileName);
         }
     	catch(Exception e)
@@ -39,7 +37,7 @@ public class FormatConverter {
 
         try
         {
-            DocumentPersister targetDocumentStorage = GetDocumentPersisterForFileName(targetFileName);
+            DocumentPersister targetDocumentStorage = documentStorageFactory.GetDocumentPersisterForFileName(targetFileName);
             targetDocumentStorage.PersistDocument(serializedDoc, targetFileName);
         }
         catch (Exception e)
@@ -52,47 +50,11 @@ public class FormatConverter {
     
     
     
-    private InputRetriever GetDocumentStorageForFileName(String fileName)
-    {
-
-        if (IsBlobstorageUrl(fileName))
-			try {
-				return new BlobDocumentStorage(Main.storageAccount, Main.storageKey);
-			} catch (InvalidKeyException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (URISyntaxException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-        if (fileName.startsWith("http"))
-            return new HttpInputRetriever();
-
-        return new FileDocumentStorage();
-    }
     
-    private DocumentPersister GetDocumentPersisterForFileName(String fileName)
-    {
-        if (IsBlobstorageUrl(fileName))
-			try {
-				return new BlobDocumentStorage(Main.storageAccount, Main.storageKey);
-			} catch (InvalidKeyException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (URISyntaxException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-        return new FileDocumentStorage();
-    }
+    
+   
     
     
 
-    private boolean IsBlobstorageUrl(String str)
-    {
-       
-        return str.startsWith(String.format("https://%s.blob.core.windows.net/", Main.storageAccount));
-    }
+  
 }
