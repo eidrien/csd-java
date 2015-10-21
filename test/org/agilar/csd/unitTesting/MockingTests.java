@@ -23,6 +23,7 @@ public class MockingTests {
 	}
 
 	@Test
+	@SuppressWarnings("unchecked")
 	public void testMockListInterface() {
 		// mock creation
 		List<String> mockedList = mock(List.class);
@@ -37,6 +38,7 @@ public class MockingTests {
 	}
 	
 	@Test
+	@SuppressWarnings("unchecked")
 	public void testMockListClass(){
 	
 		// you can mock concrete classes, not only interfaces

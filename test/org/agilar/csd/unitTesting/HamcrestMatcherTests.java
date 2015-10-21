@@ -70,7 +70,7 @@ public class HamcrestMatcherTests {
 
 	@Test
 	public void isExampleShortCutForIsInstanceOfClass() throws Exception {
-		assertThat("Hello", is(String.class));
+		assertThat("Hello", is(instanceOf(String.class)));
 		assertThat("Hello", instanceOf(String.class));
 	}
 
