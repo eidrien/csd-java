@@ -1,6 +1,6 @@
 package org.agilar.csd.unitTesting;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.util.Calendar;
 import java.util.Date;
