@@ -1,10 +1,6 @@
 package org.agilar.csd.unitTesting;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
-import java.util.LinkedList;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -52,29 +48,24 @@ public class SimpleUnitTests {
 		assertArrayEquals("Numbers in the array are not the same", someNumbers, sameNumbers);
 		assertArrayEquals("This should fail", someNumbers, otherNumbers);
 	}
-	
-	@Test
-	public void comparingLists() {
-		fail("Add tests on how to compare lists");
-	}
-	
+
 	@Test(expected = RuntimeException.class)
 	public void testException(){
-		throw new RuntimeException();
+		methodThatThrowsException();
 	}
 	
 	@Test
 	public void testExceptionOldSchool(){
 		try{
-			throw new RuntimeException("Some exception mate!");
+			methodThatThrowsException();
 		}catch(RuntimeException e){
 			assertTrue(e.getMessage().contains("exception"));
 		}
 		
 	}
-	
-	public void beCarefulOfTestsThatDontRun(){
-		fail("Why isn't this failing?");
+
+	private void methodThatThrowsException() {
+		throw new RuntimeException("Some exception thrown!");
 	}
-	
+		
 }

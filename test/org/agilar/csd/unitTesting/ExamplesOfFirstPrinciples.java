@@ -2,21 +2,12 @@ package org.agilar.csd.unitTesting;
 
 import static org.junit.Assert.*;
 
+import java.util.Calendar;
 import java.util.Date;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 public class ExamplesOfFirstPrinciples {
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	/////////////////// FAST //////////////////////
 	@Test
@@ -60,41 +51,74 @@ public class ExamplesOfFirstPrinciples {
 		assertEquals("Initial value of calculator should be 0", 0, calculator.getValue());
 	}
 
+	static RegisterMachine machine = new RegisterMachine();
+	
 	@Test
 	public void theSystemUnderTestShouldBeASingleClass() {
-
+		//RegisterMachine uses Calculator, which is not being mocked
+		machine.buy("Apple", 5);
+		assertEquals(500, machine.getTotalAmount());
 	}
 
 	@Test
 	public void runningTestsInDifferentOrderShouldStillWork() {
-
+		machine.buy("Banana", 1);
+		machine.buy("Strawberry", 1);
+		assertEquals(150, machine.getTotalAmount());
 	}
 
 	/////////////////// REPEATABLE //////////////////////
 	@Test
 	public void testsShouldHaveTheSameResultIndependentlyOfExternalContext() {
-
+		int number = (int)(Math.random()*Integer.MAX_VALUE);
+		Calculator calculator = new Calculator();
+		calculator.add(number);
+		calculator.add(1);
+		assertTrue(number < calculator.getValue());
 	}
 
 	@Test
 	public void testsShouldNotHaveSideEffects() {
-
+		int oldStartValue = Calculator.startValue;
+		Calculator.startValue = 10;
+		Calculator calculator = new Calculator();
+		calculator.add(1);
+		assertEquals(11, calculator.getValue());
+		Calculator.startValue = oldStartValue;
 	}
 
 	@Test
 	public void testsShouldNotDependOnExternalServices() {
 		// Example with date
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		
+		int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+		if(dayOfWeek == 7){
+			fail("Tests shouldn't be run on sabbath");
+		}else{
+			assertTrue("Great time to run some tests", dayOfWeek != 7);
+		}
 	}
 
 	/////////////////// SELF-VALIDATING //////////////////////
 	@Test
 	public void testsShouldBeSelfValidating() {
-
+		int number = 5;
+		Calculator calculator = new Calculator();
+		calculator.add(number);
+		calculator.add(1);
+		System.out.println("Check " + number + " is smaller than " + calculator.getValue());
 	}
 
 	@Test
 	public void testsShouldNotUsePrintoutsOrLogThings() {
-
+		int number = (int)(Math.random()*Integer.MAX_VALUE);
+		System.out.println(number);
+		Calculator calculator = new Calculator();
+		calculator.add(number);
+		calculator.add(1);
+		assertTrue(number < calculator.getValue());
 	}
 
 	/////////////////// TIMELY //////////////////////

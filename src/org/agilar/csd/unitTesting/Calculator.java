@@ -3,9 +3,10 @@ package org.agilar.csd.unitTesting;
 public class Calculator {
 	
 	private int value;
+	public static int startValue = 0;
 	
 	public Calculator(){
-		value = 0;
+		value = startValue;
 	}
 
 	public void add(int i) {

@@ -44,4 +44,9 @@ public class TypicalTestingErrors {
 	public void lowTestCodeReadability() {
 		
 	}
+	
+	public void beCarefulOfTestsThatDontRun(){
+		fail("Why isn't this failing?");
+	}
+
 }
