@@ -1,29 +1,11 @@
 package org.agilar.csd.unitTesting;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 public class SimpleUnitTests {
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	@Test
 	public void passingTest() {
@@ -57,29 +39,24 @@ public class SimpleUnitTests {
 		assertArrayEquals("Numbers in the array are not the same", someNumbers, sameNumbers);
 		assertArrayEquals("This should fail", someNumbers, otherNumbers);
 	}
-	
-	@Test
-	public void comparingLists() {
-		fail("Add tests on how to compare lists");
-	}
-	
+
 	@Test(expected = RuntimeException.class)
 	public void testException(){
-		throw new RuntimeException();
+		methodThatThrowsException();
 	}
 	
 	@Test
 	public void testExceptionOldSchool(){
 		try{
-			throw new RuntimeException("Some exception mate!");
+			methodThatThrowsException();
 		}catch(RuntimeException e){
 			assertTrue(e.getMessage().contains("exception"));
 		}
 		
 	}
-	
-	public void beCarefulOfTestsThatDontRun(){
-		fail("Why isn't this failing?");
+
+	private void methodThatThrowsException() {
+		throw new RuntimeException("Some exception thrown!");
 	}
-	
+		
 }
