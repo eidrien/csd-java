@@ -8,7 +8,7 @@ public class StolenCar extends Car {
 
 	public StolenCar(Color color) {
 		super(color);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public void StripIgnitionWires() {
