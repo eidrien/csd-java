@@ -8,5 +8,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="libs/hamcrest-junit-2.0.0.0.jar"/>
 	<classpathentry kind="lib" path="libs/mockito-1.9.5/mockito-all-1.9.5.jar"/>
+	<classpathentry kind="lib" path="libs/dagger-1.2.2.jar"/>
+	<classpathentry kind="lib" path="libs/guice-4.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
