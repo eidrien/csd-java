@@ -4,19 +4,9 @@ import static org.junit.Assert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 public class HamcrestMatcherTests {
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	@Test
 	public void allOfExampleShowsAllMatchersMustAllBeTrue() throws Exception {
