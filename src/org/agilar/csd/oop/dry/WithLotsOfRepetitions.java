@@ -1,10 +1,9 @@
-package org.agilar.csd.oop.polymorphism;
+package org.agilar.csd.oop.dry;
 
 import java.util.HashMap;
 import java.util.Map;
 
-
-public class MethodOverload {
+public class WithLotsOfRepetitions {
 
 	Map<String, Product> productsAvailable;
 	Product defaultProduct; 
@@ -12,7 +11,7 @@ public class MethodOverload {
 	String productsBought;
 	int total;
 	
-	public MethodOverload(){
+	public WithLotsOfRepetitions(){
 		productsAvailable = new HashMap<String, Product>();
 		productsAvailable.put("Banana", new Product("Banana", 100));
 		productsAvailable.put("Apple", new Product("Apple", 75));
