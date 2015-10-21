@@ -2,6 +2,7 @@ package org.agilar.csd.solid.LSP.Principles;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.awt.Color;
 
@@ -28,7 +29,15 @@ public class CarTest {
 		// var car = new Prius(Color.Red); // Changing invariants
 		Car car = new StolenCar(Color.red); // Changing preconditions
 
-		car.StartEngine();
+		try
+		{
+			car.StartEngine();	
+		}
+		catch(OutOfFuelException e)
+		{
+			fail("Car had no gas...");
+		}
+		
 
 		assertTrue(car.isEngineRunning());
 	}
