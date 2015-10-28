@@ -3,8 +3,6 @@ package org.agilar.csd.oop.dry;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.agilar.csd.oop.dry.WithLessRepetitions.Product;
-
 
 public class WithoutRepetition {
 

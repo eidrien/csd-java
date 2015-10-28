@@ -43,6 +43,6 @@ public class StringCalculatorShould {
 	public void StringCalculatorShouldbeSumTwoParameterWithCharacterExtranged() {
 		StringCalculator stringCalculator = new StringCalculator();
 		int valueofSum = stringCalculator.Add("1\n,2");
-		assertEquals(2,valueofSum);
+		assertEquals(3,valueofSum);
 	}
 }
