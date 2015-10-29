@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class FinalInvoiceHelperManualMockShould {
+public class FinalInvoiceHelperStubsShould {
 
 	private FinaliceInvoice finalInvoiceStep = null;
 	private Customers customer = null;
@@ -20,18 +20,18 @@ public class FinalInvoiceHelperManualMockShould {
 		invoice = new Invoice();
 	}
  
-	public void PrepareMockOKInvoicesSenders()
+	public void PrepareStubsOKInvoicesSenders()
 	{
-		printerService = new DummyPrinterSenderOk();
-		emailService = new DummyEmailExchangeServiceOK();
+		printerService = new StubPrinterSenderOk();
+		emailService = new StubEmailExchangeServiceOK();
 		finalInvoiceStep = new FinaliceInvoice(printerService, emailService);
 		
 	}
 
-	public void PrepareMockKOInvoicesSenders()
+	public void PrepareStubsKOInvoicesSenders()
 	{
-		printerService = new DummyPrinterSenderKO();
-		emailService = new DummyEmailExchangeServiceKO();
+		printerService = new StubPrinterSenderKO();
+		emailService = new StubEmailExchangeServiceKO();
 		finalInvoiceStep = new FinaliceInvoice(printerService, emailService);
 		
 	}
@@ -39,7 +39,7 @@ public class FinalInvoiceHelperManualMockShould {
 	@Test
 	public void SendEmailFailInvoiceToCustomer() {
 		
-		PrepareMockKOInvoicesSenders();
+		PrepareStubsKOInvoicesSenders();
 		customer.setIfWantEmailInvoice(true);
 		finalInvoiceStep.handleInvoice(invoice, customer);
 		assertFalse("Nothing should be printed email", emailService.anInvoiceWasSent());
@@ -48,7 +48,7 @@ public class FinalInvoiceHelperManualMockShould {
  
 	@Test
 	public void PrintInvoiceFailToCustomer() {
-		PrepareMockKOInvoicesSenders();
+		PrepareStubsKOInvoicesSenders();
 		customer.setIfWantEmailInvoice(false);
         customer.setIfWantPrintInvoice(true);
 		finalInvoiceStep.handleInvoice(invoice, customer);
@@ -58,7 +58,7 @@ public class FinalInvoiceHelperManualMockShould {
 
 	@Test
 	public void SendEmailInvoiceToCustomer() {
-		PrepareMockOKInvoicesSenders();
+		PrepareStubsOKInvoicesSenders();
 		customer.setIfWantEmailInvoice(true);
 		finalInvoiceStep.handleInvoice(invoice, customer);
 		assertTrue(" Should be printed email", emailService.anInvoiceWasSent());
@@ -67,7 +67,7 @@ public class FinalInvoiceHelperManualMockShould {
  
 	@Test
 	public void PrintInvoiceToCustomer() {
-		PrepareMockOKInvoicesSenders();
+		PrepareStubsOKInvoicesSenders();
 		customer.setIfWantEmailInvoice(false);
         customer.setIfWantPrintInvoice(true);
 		finalInvoiceStep.handleInvoice(invoice, customer);

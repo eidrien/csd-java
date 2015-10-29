@@ -1,6 +1,6 @@
 package org.agilar.csd.mocks;
 
-public class DummyEmailExchangeServiceKO implements EmailsService {
+public class StubEmailExchangeServiceOK implements EmailsService {
 
 	protected boolean anInvoiceWasSent;
 	
@@ -9,7 +9,7 @@ public class DummyEmailExchangeServiceKO implements EmailsService {
 		// TODO Auto-generated method stub
 		
 		//sentEmail
-		anInvoiceWasSent = false;
+		anInvoiceWasSent = true;
 	}
 
 	@Override

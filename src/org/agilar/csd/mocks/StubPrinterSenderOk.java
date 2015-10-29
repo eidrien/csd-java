@@ -1,6 +1,6 @@
 package org.agilar.csd.mocks;
 
-public class DummyPrinterSenderOk implements PrintersService {
+public class StubPrinterSenderOk implements PrintersService {
 	
 	boolean anInvoiceWasPrinted = false;
 	
