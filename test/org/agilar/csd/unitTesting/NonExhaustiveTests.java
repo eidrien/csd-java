@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class NonExhaustiveTesting {
+public class NonExhaustiveTests {
 
 	@Test
 	public void test_Calculator() {

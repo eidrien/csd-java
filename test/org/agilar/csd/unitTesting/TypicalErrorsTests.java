@@ -7,7 +7,7 @@ import java.util.Date;
 
 import org.junit.Test;
 
-public class TypicalTestingErrors {
+public class TypicalErrorsTests {
 
 	@Test
 	public void testContainingLogic_loops() {

@@ -7,7 +7,7 @@ import java.util.Date;
 
 import org.junit.Test;
 
-public class ExamplesOfFirstPrinciples {
+public class ExamplesOfFirstPrinciplesTest {
 
 	/////////////////// FAST //////////////////////
 	@Test

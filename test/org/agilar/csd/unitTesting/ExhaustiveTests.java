@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class ExhaustiveTesting {
+public class ExhaustiveTests {
 
 	@Test
 	public void calculatorShouldInitializeWithZero(){
