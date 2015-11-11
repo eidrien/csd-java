@@ -10,27 +10,23 @@ public class Customer implements Customers {
 		this.emailAdress = emailAdress;
 	}
 	
-	@Override
 	public String getEmail() {
 		// TODO Auto-generated method stub
 		return emailAdress;
 	}
 	
-	@Override
 	public boolean wantEmailInvoice()
 	{
 		return wantEmailInvoice;
 	}
 	
 	
-	@Override
 	public void setIfWantEmailInvoice(boolean wantEmailInvoice ){
 	  this.wantEmailInvoice = wantEmailInvoice;	
 	}
 
 	
 	
-	@Override
 	public boolean wantPrinterInvoice() {
 		// TODO Auto-generated method stub
 		return wantPrinterInvoice;
@@ -38,7 +34,6 @@ public class Customer implements Customers {
 
 
 
-	@Override
 	public void setIfWantPrintInvoice(boolean wantPrintInvoice) {
 		// TODO Auto-generated method stub
 		this.wantPrinterInvoice = wantPrintInvoice;

@@ -7,7 +7,6 @@ import com.google.gson.GsonBuilder;
 public class CamelCaseJsonSerializer implements DocumentSerializer
 {
 
-	@Override
 	public String Serialize(Document document) {
 		// TODO Auto-generated method stub
 		Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
