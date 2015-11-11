@@ -23,6 +23,7 @@ import org.agilar.csd.oop.functions.util.*;
 // Command-query separation
 
 // Prefer exceptions to error codes
+// Only capture exceptions when needed, you must be doing something with them
 
 // Multiple returns are ok
 
