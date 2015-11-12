@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class CarShould {
 
-	@Test
+	//@Test
 	public void makeSureCarCanStart() {
 		
 		// var car = new Car(Color.Red);
@@ -23,7 +23,7 @@ public class CarShould {
 		assertTrue(car.isEngineRunning());
 	}
 
-	@Test
+	//@Test
 	public void Make_sure_engine_is_running_after_start() {
 		// var car = new Car(Color.Red);
 		// var car = new Prius(Color.Red); // Changing invariants
@@ -42,7 +42,7 @@ public class CarShould {
 		assertTrue(car.isEngineRunning());
 	}
 
-	@Test
+	//@Test
 	public void Make_sure_car_is_painted_correctly() {
 		// var car = new Car(Color.Red);
 	    PimpedCar car = new PimpedCar(Color.red); // Violating history constraint

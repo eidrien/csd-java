@@ -23,7 +23,7 @@ public class FinalInvoiceHelperShould {
 		invoice = new Invoice();
 	}
  
-	@Test
+	//@Test
 	public void SendEmailFailInvoiceToCustomer() {
 		customer.setIfWantEmailInvoice(true);
 		finalInvoiceStep.handleInvoice(invoice, customer);
@@ -31,7 +31,7 @@ public class FinalInvoiceHelperShould {
  
 	}
  
-	@Test
+	//@Test
 	public void PrintInvoiceFailToCustomer() {
 		customer.setIfWantEmailInvoice(false);
         customer.setIfWantPrintInvoice(true);

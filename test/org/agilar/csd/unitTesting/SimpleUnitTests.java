@@ -30,7 +30,7 @@ public class SimpleUnitTests {
 		assertNull("The value is not null", null);
 	}
 	
-	@Test
+	//@Test
 	public void arrayAssertions() {
 		
 		int[] someNumbers = {1,2,3,4,5};
