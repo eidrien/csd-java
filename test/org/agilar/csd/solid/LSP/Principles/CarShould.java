@@ -6,8 +6,6 @@ import static org.junit.Assert.fail;
 
 import java.awt.Color;
 
-import org.junit.Test;
-
 public class CarShould {
 
 	//@Test
