@@ -14,7 +14,6 @@ import com.microsoft.azure.storage.blob.BlobContainerPublicAccessType;
 import com.microsoft.azure.storage.blob.CloudBlobClient;
 import com.microsoft.azure.storage.blob.CloudBlobContainer;
 import com.microsoft.azure.storage.blob.CloudBlockBlob;
-import com.sun.jndi.toolkit.url.Uri;
 
 
 
@@ -61,7 +60,7 @@ public class BlobDocumentStorage extends DocumentStorage
     	try
     	{
     	  
-           Uri uri = new Uri (targetFileName);
+           URI uri = new URI (targetFileName);
            String containerName =  uri.getPath().substring(1,uri.getPath().indexOf("/",1)-1);
     	        	
     	    CloudBlobContainer container = blobClient.getContainerReference(containerName);
