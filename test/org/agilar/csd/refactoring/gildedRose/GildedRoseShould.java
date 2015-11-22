@@ -27,10 +27,10 @@ public class GildedRoseShould {
 
 	@Test
 	public void decreaseBy1TheQualityAndRemainingSellnDaysOfRegularItems() {
-		items.add(new Item("+5 Dexterity Vest", 10, 20));
-		items.add(new Item("Conjured Mana Cake", 3, 6));
+		items.add(new RegularItem("+5 Dexterity Vest", 10, 20));
+		items.add(new RegularItem("Conjured Mana Cake", 3, 6));
 
-		items = gildedRose.updateQuality(items);
+		items = gildedRose.updateQualityAndSellInTime(items);
 
 		assertEquals(items.get(0).sellIn, 9);
 		assertEquals(items.get(0).quality, 19);
@@ -40,10 +40,10 @@ public class GildedRoseShould {
 
 	@Test
 	public void increaseTheQualityByOneOfTheProductsThatGetBetterAsTheyAge() {
-		items.add(new Item("Aged Brie", 20, 30));
-		items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 20, 30));
+		items.add(new StinkyCheese(20, 30));
+		items.add(new BackstagePass(20, 30));
 
-		items = gildedRose.updateQuality(items);
+		items = gildedRose.updateQualityAndSellInTime(items);
 
 		assertEquals(items.get(0).sellIn, 19);
 		assertEquals(items.get(0).quality, 31);
@@ -53,10 +53,10 @@ public class GildedRoseShould {
 
 	@Test
 	public void increaseQualityByTwoOfTheProductsThatGetBetterAsTheyAgeWhenThereAre10daysOrLessLeft() throws Exception {
-		items.add(new Item("Aged Brie", 10, 34));
-		items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 8, 30));
+		items.add(new StinkyCheese(10, 34));
+		items.add(new BackstagePass(8, 30));
 
-		items = gildedRose.updateQuality(items);
+		items = gildedRose.updateQualityAndSellInTime(items);
 
 		assertEquals(items.get(0).sellIn, 9);
 		assertEquals(items.get(0).quality, 36);
@@ -67,10 +67,10 @@ public class GildedRoseShould {
 	@Test
 	public void increasesTheQualityByThreeOfTheProductsThatGetBetterAsTheyAge_WhenThereAre5daysOrLessLeft()
 			throws Exception {
-		items.add(new Item("Aged Brie", 4, 11));
-		items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 15));
+		items.add(new StinkyCheese(4, 11));
+		items.add(new BackstagePass(5, 15));
 
-		items = gildedRose.updateQuality(items);
+		items = gildedRose.updateQualityAndSellInTime(items);
 
 		assertEquals(items.get(0).sellIn, 3);
 		assertEquals(items.get(0).quality, 14);
@@ -81,10 +81,10 @@ public class GildedRoseShould {
 	@Test
 	public void decreasesTheQualityAndTheSellInOfTheProductsTwiceAsFastWhenWeHavePassedTheSellInDate()
 			throws Exception {
-		items.add(new Item("+5 Dexterity Vest", 0, 20));
-		items.add(new Item("Conjured Mana Cake", 0, 6));
+		items.add(new RegularItem("+5 Dexterity Vest", 0, 20));
+		items.add(new RegularItem("Conjured Mana Cake", 0, 6));
 
-		items = gildedRose.updateQuality(items);
+		items = gildedRose.updateQualityAndSellInTime(items);
 
 		assertEquals(items.get(0).sellIn, -1);
 		assertEquals(items.get(0).quality, 18);
@@ -94,10 +94,10 @@ public class GildedRoseShould {
 
 	@Test
 	public void updatesTheQualityOfBackstagePassesAndBrieToZeroWhenWeHavePassedTheSellInDate() throws Exception {
-		items.add(new Item("Aged Brie", 0, 20));
-		items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20));
+		items.add(new StinkyCheese(0, 20));
+		items.add(new BackstagePass(0, 20));
 
-		items = gildedRose.updateQuality(items);
+		items = gildedRose.updateQualityAndSellInTime(items);
 
 		assertEquals(items.get(0).sellIn, -1);
 		assertEquals(items.get(0).quality, 0);
@@ -107,9 +107,9 @@ public class GildedRoseShould {
 
 	@Test
 	public void doesNotAlterTheQualityOfSulfurasWhichIsAlways80() throws Exception {
-		items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
+		items.add(new Sulfuras());
 
-		items = gildedRose.updateQuality(items);
+		items = gildedRose.updateQualityAndSellInTime(items);
 
 		assertEquals(items.get(0).sellIn, 0);
 		assertEquals(items.get(0).quality, 80);
@@ -117,9 +117,9 @@ public class GildedRoseShould {
 
 	@Test
 	public void doesNotIncreaseQualityhOver50() throws Exception {
-		items.add(new Item("Aged Brie", 3, 50));
+		items.add(new StinkyCheese(3, 50));
 
-		items = gildedRose.updateQuality(items);
+		items = gildedRose.updateQualityAndSellInTime(items);
 
 		assertEquals(items.get(0).sellIn, 2);
 		assertEquals(items.get(0).quality, 50);
