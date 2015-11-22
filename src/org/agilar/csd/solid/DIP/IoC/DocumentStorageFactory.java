@@ -1,10 +1,20 @@
-package org.agilar.csd.solid.DIP.ServiceLocator;
+package org.agilar.csd.solid.DIP.IoC;
 
 import java.net.URISyntaxException;
 import java.security.InvalidKeyException;
 
-public class DocumentStorageFactory {
+import com.google.inject.Singleton;
 
+@Singleton
+public class DocumentStorageFactory implements StorageFactory {
+
+	/* (non-Javadoc)
+	 * @see org.agilar.csd.solid.DIP.IoC.DocumentStoareFactory#GetInputRetrieverForFileName(java.lang.String)
+	 */
+	/* (non-Javadoc)
+	 * @see org.agilar.csd.solid.DIP.IoC.StorageFactory#GetInputRetrieverForFileName(java.lang.String)
+	 */
+	@Override
 	public  InputRetriever GetInputRetrieverForFileName(String fileName) {
 
 		if (Utils.IsBlobstorageUrl(fileName))
@@ -24,6 +34,13 @@ public class DocumentStorageFactory {
 		return new FileDocumentStorage();
 	}
 
+	/* (non-Javadoc)
+	 * @see org.agilar.csd.solid.DIP.IoC.DocumentStoareFactory#GetDocumentPersisterForFileName(java.lang.String)
+	 */
+	/* (non-Javadoc)
+	 * @see org.agilar.csd.solid.DIP.IoC.StorageFactory#GetDocumentPersisterForFileName(java.lang.String)
+	 */
+	@Override
 	public  DocumentPersister GetDocumentPersisterForFileName(String fileName) {
 		if (Utils.IsBlobstorageUrl(fileName))
 			try {

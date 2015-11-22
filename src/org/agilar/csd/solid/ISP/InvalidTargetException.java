@@ -1,6 +1,6 @@
 package org.agilar.csd.solid.ISP;
 
-public class InvalidTargetException extends Exception {
+public class InvalidTargetException extends RuntimeException {
 
 	/**
 	 * 

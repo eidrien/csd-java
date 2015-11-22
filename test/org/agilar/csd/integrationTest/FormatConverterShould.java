@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.agilar.csd.solid.DIP.IoC.StorageFactory;
 import org.agilar.csd.solid.DIP.Manual.DocumentSerializer;
 import org.agilar.csd.solid.DIP.Manual.DocumentStorageFactory;
 import org.agilar.csd.solid.DIP.Manual.FormatConverter;
@@ -30,12 +31,11 @@ public class FormatConverterShould {
 
 		InputParser xmlInputParser = new InputParser();
 		DocumentSerializer documentSerializer = new JsonDocumentSerializer();
-
-		FormatConverter formatConverter = new FormatConverter(xmlInputParser, documentSerializer);
 		DocumentStorageFactory documentStorageFactory = new DocumentStorageFactory();
+		FormatConverter formatConverter = new FormatConverter(documentStorageFactory,xmlInputParser, documentSerializer);
 		boolean fileConverted = false;
 
-		fileConverted = formatConverter.ConvertFormat(documentStorageFactory, sourceFileName, targetFileName);
+		fileConverted = formatConverter.ConvertFormat( sourceFileName, targetFileName);
 
 		File fileOutput = new File(targetFileName);
 

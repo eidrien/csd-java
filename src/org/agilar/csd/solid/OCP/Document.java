@@ -1,8 +1,6 @@
 package org.agilar.csd.solid.OCP;
 
-/**
- * Created by Alberto on 13/10/15.
- */
+
 public class Document {
 
     private String title;

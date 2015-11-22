@@ -14,14 +14,15 @@ public class FormatConverter {
     
     private final InputParser inputParser;
     private final DocumentSerializer documentSerializer;
-
-    public FormatConverter(InputParser inputParser, DocumentSerializer documentSerializer)
+    private final DocumentStorageFactory documentStorageFactory;
+    public FormatConverter(DocumentStorageFactory documentStorageFactory,InputParser inputParser, DocumentSerializer documentSerializer)
     {
         this.inputParser =inputParser;
         this.documentSerializer = documentSerializer;
+        this.documentStorageFactory = documentStorageFactory;
     }
 
-    public boolean ConvertFormat(DocumentStorageFactory documentStorageFactory, String sourceFileName, String targetFileName) throws IOException, SAXException, ParserConfigurationException {
+    public boolean ConvertFormat(String sourceFileName, String targetFileName) throws IOException, SAXException, ParserConfigurationException {
     	File input = null;
     	try
     	{
@@ -32,7 +33,7 @@ public class FormatConverter {
     	{
     		return false;
     	}
-        Document doc = inputParser.ParseInput(input);
+        Document doc = inputParser.ParserInput(input);
         String serializedDoc = documentSerializer.Serialize(doc);
 
         try

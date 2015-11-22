@@ -4,8 +4,9 @@ import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public class HttpInputRetriever implements InputRetriever {
+public class HttpInputRetriever implements InputRetriever{
 
+	@Override
 	public File GetData(String fileName) {
 		if (!fileName.startsWith("http"))
         {
@@ -28,6 +29,6 @@ public class HttpInputRetriever implements InputRetriever {
         return new File(uri);
 	}
 
-	
+
 
 }

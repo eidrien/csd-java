@@ -1,4 +1,4 @@
-package org.agilar.csd.solid.DIP.ServiceLocator;
+package org.agilar.csd.solid.DIP.IoC;
 
 public  class Utils {
 	    public static final String storageAccount ="agilarcsd";
