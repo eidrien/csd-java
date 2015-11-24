@@ -49,6 +49,7 @@ public class SimpleUnitTests {
 	public void testExceptionOldSchool(){
 		try{
 			methodThatThrowsException();
+			fail("Should have thrown exception");
 		}catch(RuntimeException e){
 			assertTrue(e.getMessage().contains("exception"));
 		}
