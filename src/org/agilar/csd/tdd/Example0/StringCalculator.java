@@ -1,4 +1,4 @@
-package org.agilar.csd.tdd;
+package org.agilar.csd.tdd.Example0;
 
 public class StringCalculator {
 
