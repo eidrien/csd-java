@@ -1,26 +1,21 @@
 package org.agilar.csd.tdd.Example2;
 
+import org.agilar.csd.tdd.Example2.Simple.StoneScissorPaper;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Created by juanbacarditbarrera on 24/5/16.
- */
 public class StoneScissorsPaperShould {
 
-    private StoneScissorPaper _game;
+    protected IGame _game;
     private RoundChoice _player1;
     private RoundChoice _player2;
 
-    @Before
-    public void BeforeAll(){
-
+    public StoneScissorsPaperShould() {
         _game = new StoneScissorPaper();
     }
 
     @Test
-    public void WhenPlayer1ChoicesStoneAndPlayer2ChoicesPaperThenPlayers2Wins(){
+    public void GivenAGameWhenPlayer1ChoicesStoneAndPlayer2ChoicesPaperThenPlayers2Wins(){
         _player1 = RoundChoice.Stone;
         _player2 = RoundChoice.Paper;
         RoundResult result = _game.PlayRound(_player1,_player2);
@@ -28,7 +23,7 @@ public class StoneScissorsPaperShould {
     }
 
     @Test
-    public void WhenPlayer1ChoicesPaperAndPlayer2ChoicesStoneThenPlayers1Wins(){
+    public void GivenAGameWhenPlayer1ChoicesPaperAndPlayer2ChoicesStoneThenPlayers1Wins(){
         _player1 = RoundChoice.Paper;
         _player2 = RoundChoice.Stone;
         RoundResult result = _game.PlayRound(_player1,_player2);
@@ -36,7 +31,7 @@ public class StoneScissorsPaperShould {
     }
 
     @Test
-    public void WhenPlayer1ChoicesPaperAndPlayer2ChoicesScissorsThenPlayers2Wins(){
+    public void GivenAGameWhenPlayer1ChoicesPaperAndPlayer2ChoicesScissorsThenPlayers2Wins(){
         _player1 = RoundChoice.Paper;
         _player2 = RoundChoice.Scissors;
         RoundResult result = _game.PlayRound(_player1,_player2);
@@ -44,7 +39,7 @@ public class StoneScissorsPaperShould {
     }
 
     @Test
-    public void WhenPlayer1ChoicesScissorsAndPlayer2ChoicesPaperThenPlayers1Wins(){
+    public void GivenAGameWhenPlayer1ChoicesScissorsAndPlayer2ChoicesPaperThenPlayers1Wins(){
         _player1 = RoundChoice.Scissors;
         _player2 = RoundChoice.Paper;
         RoundResult result = _game.PlayRound(_player1,_player2);
@@ -52,7 +47,7 @@ public class StoneScissorsPaperShould {
     }
 
     @Test
-    public void WhenPlayer1ChoicesScissorsAndPlayer2ChoicesStoneThenPlayers2Wins(){
+    public void GivenAGameWhenPlayer1ChoicesScissorsAndPlayer2ChoicesStoneThenPlayers2Wins(){
         _player1 = RoundChoice.Scissors;
         _player2 = RoundChoice.Stone;
         RoundResult result = _game.PlayRound(_player1,_player2);
@@ -60,7 +55,7 @@ public class StoneScissorsPaperShould {
     }
 
     @Test
-    public void WhenPlayer1ChoicesStoneAndPlayer2ChoicesScissorsThenPlayers1Wins(){
+    public void GivenAGameWhenPlayer1ChoicesStoneAndPlayer2ChoicesScissorsThenPlayers1Wins(){
         _player1 = RoundChoice.Stone    ;
         _player2 = RoundChoice.Scissors;
         RoundResult result = _game.PlayRound(_player1,_player2);
@@ -68,7 +63,7 @@ public class StoneScissorsPaperShould {
     }
 
     @Test
-    public void WhenPlayer1ChoicesStoneAndPlayer2ChoicesStoneThenPlayersDraw(){
+    public void GivenAGameWhenPlayer1ChoicesStoneAndPlayer2ChoicesStoneThenPlayersDraw(){
         _player1 = RoundChoice.Stone    ;
         _player2 = RoundChoice.Stone;
         RoundResult result = _game.PlayRound(_player1,_player2);
@@ -76,7 +71,7 @@ public class StoneScissorsPaperShould {
     }
 
     @Test
-    public void WhenPlayer1ChoicesScissorsAndPlayer2ChoicesScissorsThenPlayersDraw(){
+    public void GivenAGameWhenPlayer1ChoicesScissorsAndPlayer2ChoicesScissorsThenPlayersDraw(){
         _player1 = RoundChoice.Scissors    ;
         _player2 = RoundChoice.Scissors;
         RoundResult result = _game.PlayRound(_player1,_player2);
@@ -84,14 +79,11 @@ public class StoneScissorsPaperShould {
     }
 
     @Test
-    public void WhenPlayer1ChoicesPaperAndPlayer2ChoicesPaperThenPlayersDraw(){
+    public void GivenAGameWhenPlayer1ChoicesPaperAndPlayer2ChoicesPaperThenPlayersDraw(){
         _player1 = RoundChoice.Paper    ;
         _player2 = RoundChoice.Paper;
         RoundResult result = _game.PlayRound(_player1,_player2);
         Assert.assertSame(result, RoundResult.Draw);
     }
-
-
-    //TODO: Create whole testing suite before coding
 
 }

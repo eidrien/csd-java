@@ -6,15 +6,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Created by juanbacarditbarrera on 24/5/16.
- */
 public class FizzBuzzShould
 {
 
     private static final String Fizz = "Fizz";
     private static final String Buzz = "Buzz";
     private static final String FizzBuzz = "FizzBuzz";
+    private static final String NotFizzBuzz = "NotFizzBuzz";
+    private static final String WoooW = "WoooW";
 
     private FizzBuzz SUT;
 
@@ -29,30 +28,50 @@ public class FizzBuzzShould
     }
 
     @Test
-    public void whenInputIsMultipleOfThreeReturnFizz(){
+    public void whenInputIsMultipleOf3ThenReturnFizz(){
         int param = 12;
         String resultOfTest = SUT.Execute(param);
         assertEquals(resultOfTest, Fizz );
     }
 
     @Test
-    public void whenInputIsMultipleOfFiveReturnBuzz(){
+    public void whenInputIsMultipleOf5ThenReturnBuzz(){
         int param =25;
         String resultOfTest = SUT.Execute(param);
         assertEquals(resultOfTest, Buzz );
     }
 
     @Test
-    public void whenInputIsMultipleOfFiveAndThreeReturnFizzBuzz(){
-        int param = 15;
+    public void whenInputIsMultipleOf3And5ThenReturnFizzBuzz(){
+        int param = 30;
         String resultOfTest = SUT.Execute(param);
         assertEquals(resultOfTest, FizzBuzz );
     }
 
     @Test
-    public void whenInputIsNotMultipleOfFiveAndThreeReturnItSelvAsString(){
+    public void whenInputIsNotMultipleOf5And3ThenReturnItSelveAsString(){
         int param = 19;
         String resultOfTest = SUT.Execute(param);
         assertEquals(resultOfTest, Integer.toString(param));
     }
+    
+    @Test
+    public void whenInputIsMultpleOf5And3AndNotMultipleOf2ReturnsNotFizzBuzz(){
+    	int param = 15;
+    	String resultOfTest = SUT.Execute(param);
+    	assertEquals(resultOfTest, NotFizzBuzz);
+    }
+    
+    @Test
+    public void whenInputIsMultpleOf5And3AndNotMultipleOf2ButMultipleOf7ReturnsWoooW(){
+    	int param = 105;
+    	int param2 = 140;
+    	String resultOfTest = SUT.Execute(param);
+    	assertEquals(resultOfTest, WoooW);
+    	String resultOfTest2 = SUT.Execute(param);
+    	assertEquals(resultOfTest2, Integer.toString(param2));
+    	
+    }
+    
+    
 }

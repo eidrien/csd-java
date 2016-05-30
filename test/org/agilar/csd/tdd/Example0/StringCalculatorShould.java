@@ -2,7 +2,6 @@ package org.agilar.csd.tdd.Example0;
 
 import static org.junit.Assert.*;
 
-import org.agilar.csd.tdd.StringCalculator;
 import org.junit.Test;
 
 public class StringCalculatorShould {

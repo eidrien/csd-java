@@ -8,6 +8,6 @@ public enum RoundChoice{
     Stone,
     Scissors,
     Paper,
-    Lizzard,
+    Lizard,
     Spock
 }
