@@ -1,0 +1,6 @@
+[submodule "src/org/agilar/csd/CSD"]
+	path = src/org/agilar/csd/CSD
+	url = https://github.com/juanbacardit/CSD.git
+[submodule "src/org/agilar/csd/ci"]
+	path = src/org/agilar/csd/ci
+	url = https://github.com/juanbacardit/ci.git

@@ -7,12 +7,11 @@ import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.agilar.csd.solid.DIP.IoC.StorageFactory;
-import org.agilar.csd.solid.DIP.Manual.DocumentSerializer;
-import org.agilar.csd.solid.DIP.Manual.DocumentStorageFactory;
-import org.agilar.csd.solid.DIP.Manual.FormatConverter;
-import org.agilar.csd.solid.DIP.Manual.InputParser;
-import org.agilar.csd.solid.DIP.Manual.JsonDocumentSerializer;
+import org.agilar.csd.solid.Example1.DIP.Manual.DocumentSerializer;
+import org.agilar.csd.solid.Example1.DIP.Manual.DocumentStorageFactory;
+import org.agilar.csd.solid.Example1.DIP.Manual.FormatConverter;
+import org.agilar.csd.solid.Example1.DIP.Manual.InputParser;
+import org.agilar.csd.solid.Example1.DIP.Manual.JsonDocumentSerializer;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
